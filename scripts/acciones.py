@@ -15,7 +15,7 @@ from pathlib import Path
 from urllib.parse import parse_qs
 
 ENV     = Path("/etc/filosofadas/env")
-ETC     = Path("/etc/filosofadas")
+APP     = Path("/opt/filosofia-ia/scripts")
 BASE    = Path("/var/lib/filosofadas")
 PUERTO  = 8791
 MAX_CUERPO = 8192
@@ -63,7 +63,7 @@ def validar(par, token):
 
 
 def ejecutar(script, args, entrada=None):
-    ruta = ETC / script
+    ruta = APP / script
     if not ruta.exists():
         return 70, f"No existe {ruta}"
     try:

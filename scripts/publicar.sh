@@ -9,7 +9,7 @@ case "$LOC" in ca|es|cost) ;; *) echo "locale invalido: $LOC" >&2; exit 64 ;; es
 
 BASE=/var/lib/filosofadas
 DIR="$BASE/pending/$ID"
-DOCROOT=/var/www.hugo.cat/html
+DOCROOT=/var/www.hugo.cat/filonoticies
 ORIGEN="$DIR/$LOC.html"
 MAX=524288
 
@@ -40,8 +40,8 @@ chmod 644 "$DEST/.$DIA.html.tmp"
 mv -f "$DEST/.$DIA.html.tmp" "$DEST/$DIA.html"
 
 # --- indice de la ruta ---
-python3 /etc/filosofadas/indice.py "$LOC"
-python3 /etc/filosofadas/portada.py || echo "aviso: portada no regenerada" >&2
+python3 /opt/filosofia-ia/scripts/indice.py "$LOC"
+python3 /opt/filosofia-ia/scripts/portada.py || echo "aviso: portada no regenerada" >&2
 
 # --- historial git (nunca hace push) ---
 if [ -d "$DOCROOT/.git" ]; then

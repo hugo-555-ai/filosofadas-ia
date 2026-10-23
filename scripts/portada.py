@@ -11,7 +11,7 @@ import re
 import sys
 from pathlib import Path
 
-DOCROOT = Path("/var/www.hugo.cat/html")
+DOCROOT = Path("/var/www.hugo.cat/filonoticies")
 LOCALES = ("ca", "es", "cost")
 IDIOMA  = {"ca": "ca", "es": "es", "cost": "es"}
 NOMBRE  = {"ca": "FiloNotícies", "es": "FiloNoticias", "cost": "FiloNoticias — a lo bien"}

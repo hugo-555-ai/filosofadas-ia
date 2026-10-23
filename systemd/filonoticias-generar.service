@@ -10,6 +10,6 @@ Group=filosofadas
 WorkingDirectory=/var/lib/filosofadas/work
 Environment=HOME=/var/lib/filosofadas
 Environment=PYTHONUNBUFFERED=1
-ExecStart=/usr/bin/python3 /etc/filosofadas/filonoticias-generar.py
+ExecStart=/usr/bin/python3 /opt/filosofia-ia/scripts/filonoticias-generar.py
 TimeoutStartSec=1200
 Nice=10

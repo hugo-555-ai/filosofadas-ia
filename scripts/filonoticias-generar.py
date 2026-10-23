@@ -2,7 +2,7 @@
 """
 FiloNoticias — genera el borrador diario.
 
-  1. Lee los RSS de /etc/filosofadas/fuentes.txt
+  1. Lee los RSS de /opt/filosofia-ia/scripts/fuentes.txt
   2. Filtra las noticias publicadas AYER (Europe/Madrid)
   3. Pide al modelo que elija las 3-4 con mas sustancia filosofica
   4. Genera tres versiones (ca / es / cost) con EL MISMO set de noticias
@@ -17,13 +17,14 @@ from html.parser import HTMLParser
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-sys.path.insert(0, "/etc/filosofadas")
+sys.path.insert(0, "/opt/filosofia-ia/scripts")
 import layout
 import unicodedata
 
 import feedparser
 
-ETC  = Path("/etc/filosofadas")
+ETC  = Path("/etc/filosofadas")          # solo secretos (env)
+APP  = Path("/opt/filosofia-ia/scripts")   # logica, fuentes y tonos
 BASE = Path("/var/lib/filosofadas")
 TZ   = ZoneInfo("Europe/Madrid")
 AYER = (datetime.now(TZ) - timedelta(days=1)).date()
@@ -136,7 +137,7 @@ def titulares_excluidos():
 
 def recoger_noticias():
     """Lee los feeds y devuelve las entradas de AYER."""
-    urls = [l.strip() for l in (ETC / "fuentes.txt").read_text().splitlines()
+    urls = [l.strip() for l in (APP / "fuentes.txt").read_text().splitlines()
             if l.strip() and not l.strip().startswith("#")]
     ayer, encontradas, vistos = [], [], set()
     for u in urls:
@@ -302,7 +303,7 @@ def redactar(cfg, noticias, tono, solo_faltantes=False, ya_incluidas=""):
 
     Con solo_faltantes=True pide UNICAMENTE las fichas ausentes, para el reintento.
     """
-    directrices = (ETC / "tonos" / f"{tono}.md").read_text()
+    directrices = (APP / "tonos" / f"{tono}.md").read_text()
 
     if solo_faltantes:
         idx = _faltantes(ya_incluidas, noticias)
@@ -427,7 +428,7 @@ def main():
     }, ensure_ascii=False, indent=2), encoding="utf-8")
 
     log(f"borrador {id_} listo")
-    os.execv("/etc/filosofadas/avisar.sh", ["avisar.sh", id_])
+    os.execv("/opt/filosofia-ia/scripts/avisar.sh", ["avisar.sh", id_])
 
 
 if __name__ == "__main__":

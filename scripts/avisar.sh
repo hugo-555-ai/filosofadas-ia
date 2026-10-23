@@ -5,7 +5,7 @@ umask 022
 
 ID="${1:?falta el id}"
 BASE=/var/lib/filosofadas
-DOCROOT=/var/www.hugo.cat/html
+DOCROOT=/var/www.hugo.cat/filonoticies
 DIR="$BASE/pending/$ID"
 ENV=/etc/filosofadas/env
 
@@ -119,10 +119,10 @@ if [ -f /etc/msmtprc ] && command -v msmtp >/dev/null 2>&1; then
     printf 'Els botons fan una peticio POST autenticada amb un token d un sol us\n'
     printf 'que viatja dins la propia pagina. No cal SSH ni copiar cap ordre.\n\n'
     printf 'Linia de comandes (alternativa, per SSH):\n\n'
-    printf '  sudo -u filosofadas /etc/filosofadas/aprobar.sh ca   %s\n' "$ID"
-    printf '  sudo -u filosofadas /etc/filosofadas/aprobar.sh es   %s\n' "$ID"
-    printf '  sudo -u filosofadas /etc/filosofadas/aprobar.sh cost %s\n' "$ID"
-    printf '  sudo -u filosofadas /etc/filosofadas/rechazar.sh %s\n\n' "$ID"
+    printf '  sudo -u filosofadas /opt/filosofia-ia/scripts/aprobar.sh ca   %s\n' "$ID"
+    printf '  sudo -u filosofadas /opt/filosofia-ia/scripts/aprobar.sh es   %s\n' "$ID"
+    printf '  sudo -u filosofadas /opt/filosofia-ia/scripts/aprobar.sh cost %s\n' "$ID"
+    printf '  sudo -u filosofadas /opt/filosofia-ia/scripts/rechazar.sh %s\n\n' "$ID"
     printf 'Caduca: %s\n' "$EXPIRA"
   } | msmtp "$CORREO_DESTINO"
   echo "avis enviat a $CORREO_DESTINO"

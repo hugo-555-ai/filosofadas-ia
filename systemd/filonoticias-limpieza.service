@@ -4,4 +4,4 @@ Description=Retencion de borradores de FiloNoticias
 [Service]
 Type=oneshot
 User=filosofadas
-ExecStart=/etc/filosofadas/limpiar.sh
+ExecStart=/opt/filosofia-ia/scripts/limpiar.sh

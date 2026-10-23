@@ -28,7 +28,20 @@ Sat 2026-10-24 07:00:00 UTC 21h left Fri 2026-10-23 07:00:02 UTC 2h 41min ago fi
 
 ## Ficheros de script
 
-Los ficheros de script van a /opt/filososfadas
+La lógica (scripts, `fuentes.txt`, `tonos/`) vive en este repo, en `/opt/filosofia-ia/scripts`.
+Los ficheros `.sh` deben ser ejecutables.
+
+## Directorios web
+
+Los directorios servidos por Apache cuelgan de `/var/www.hugo.cat/filonoticies`
+(ver los `Alias` en `/etc/apache2/sites-available/hugo.cat.conf`):
+
+- `filonoticies/` portada
+- `filonoticies-ca/`, `filonoticies-es/`, `filonoticies-cost/` publicaciones por idioma
+- `o/` vistas previas de borradores
+- `filonoticies.css` hoja de estilos
+
+Los datos de trabajo (borradores, archivo, cola) siguen en `/var/lib/filosofadas`.
 
 ## Fichero de secretos
 
