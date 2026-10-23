@@ -1,0 +1,14 @@
+# Secretos: nunca subir al repositorio
+env
+*.env
+.env
+
+# Caches de Python
+__pycache__/
+*.pyc
+
+# Ficheros temporales y del editor
+*.tmp
+*.log
+.DS_Store
+Thumbs.db

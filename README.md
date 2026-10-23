@@ -35,10 +35,10 @@ Los ficheros de script van a /opt/filososfadas
 se espera un fichero /etc/filosofadas/env con la siguiente estructura:
 
 ```
-MISTRAL_API_KEY=mstrl_pdXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXr8Lu
-OPENWEBUI_API_KEY=sk-07ca3XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX774
-OPENWEBUI_URL=http://192.168.1.156:3150
-TOKEN_VISTA=4febXXXXXXXXXXXXXXXXXXX34b0d9
+MISTRAL_API_KEY=<tu-clave-mistral>
+OPENWEBUI_API_KEY=<tu-clave-openwebui>
+OPENWEBUI_URL=http://<ip-openwebui>:<puerto>
+TOKEN_VISTA=<tu-token-vista>
 BASE_VISTA=https://hugo.cat/o
 CORREO_DESTINO=hugo@hugo.cat
 REMITENTE=FiloNoticias <filosofadas@hugo.cat>
