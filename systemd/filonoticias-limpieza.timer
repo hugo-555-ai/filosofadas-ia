@@ -1,0 +1,9 @@
+[Unit]
+Description=Retencion de FiloNoticias (08:00)
+
+[Timer]
+OnCalendar=*-*-* 08:00:00 Europe/Madrid
+Persistent=true
+
+[Install]
+WantedBy=timers.target

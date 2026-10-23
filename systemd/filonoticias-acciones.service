@@ -1,0 +1,27 @@
+[Unit]
+Description=Botones de aprobacion de FiloNoticias (solo 127.0.0.1)
+After=network.target
+
+[Service]
+Type=simple
+User=filosofadas
+Group=filosofadas
+WorkingDirectory=/var/lib/filosofadas/work
+Environment=HOME=/var/lib/filosofadas
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 /etc/filosofadas/acciones.py
+
+# Se reinicia solo si se cae (pero no en bucle infinito)
+Restart=on-failure
+RestartSec=5
+
+# Limite de memoria: este servidor tiene 873 MB SIN swap.
+# El servicio esta inactivo casi siempre (~20 MB); el tope solo actua
+# si algo se descontrola, y evita que arrastre al resto de la maquina.
+MemoryMax=200M
+
+# El servicio lanza scripts; que no puedan ganar privilegios extra.
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

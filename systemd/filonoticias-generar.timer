@@ -1,0 +1,10 @@
+[Unit]
+Description=Genera FiloNoticias cada dia a las 07:00
+
+[Timer]
+OnCalendar=*-*-* 07:00:00 Europe/Madrid
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

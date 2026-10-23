@@ -1,0 +1,15 @@
+[Unit]
+Description=Genera el borrador diario de FiloNoticias
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=filosofadas
+Group=filosofadas
+WorkingDirectory=/var/lib/filosofadas/work
+Environment=HOME=/var/lib/filosofadas
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 /etc/filosofadas/filonoticias-generar.py
+TimeoutStartSec=1200
+Nice=10

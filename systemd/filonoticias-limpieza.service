@@ -1,0 +1,7 @@
+[Unit]
+Description=Retencion de borradores de FiloNoticias
+
+[Service]
+Type=oneshot
+User=filosofadas
+ExecStart=/etc/filosofadas/limpiar.sh

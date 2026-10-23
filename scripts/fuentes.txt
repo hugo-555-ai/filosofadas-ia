@@ -1,0 +1,6 @@
+https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada
+https://e00-elmundo.uecdn.es/elmundo/rss/portada.xml
+https://www.lavanguardia.com/rss/home.xml
+https://www.eldiario.es/rss/
+https://feeds.bbci.co.uk/mundo/rss.xml
+https://www.agenciasinc.es/rss/portada

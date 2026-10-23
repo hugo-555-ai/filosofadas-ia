@@ -1,0 +1,7 @@
+[Unit]
+Description=Comprueba que hoy se haya generado el borrador
+
+[Service]
+Type=oneshot
+User=filosofadas
+ExecStart=/etc/filosofadas/vigilancia.sh
