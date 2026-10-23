@@ -56,3 +56,49 @@ BASE_VISTA=https://hugo.cat/o
 CORREO_DESTINO=hugo@hugo.cat
 REMITENTE=FiloNoticias <filosofadas@hugo.cat>
 ```
+
+## Publicar cambios en GitHub
+
+El remoto es `https://github.com/hugo-555-ai/filosofadas-ia` por HTTPS y el servidor
+no guarda credenciales, así que cada push pide un token.
+
+1. Trabaja siempre con el usuario `adminlechuga`, nunca como root. Si ejecutas git
+   como root, deja `.git/config` y las refs con propietario root y `adminlechuga`
+   ya no puede usar git. Se arregla con:
+   ```
+   chown -R adminlechuga:adminlechuga /opt/filosofia-ia/.git
+   ```
+2. Crea una rama, commitea y haz push de la rama:
+   ```
+   git checkout -b mi-cambio
+   git add -A && git commit -m "Descripción del cambio"
+   sudo -u adminlechuga git push -u origin mi-cambio
+   ```
+3. Cuando pida credenciales: *Username* `hugo-555-ai` y *Password* un token de GitHub
+   (no la contraseña de la cuenta).
+4. Fusiona con un Pull Request en GitHub (`https://github.com/hugo-555-ai/filosofadas-ia/pull/new/mi-cambio`)
+   o en local y sube `main`:
+   ```
+   git checkout main
+   git merge --no-ff mi-cambio
+   sudo -u adminlechuga git push origin main
+   ```
+5. Borra la rama ya fusionada:
+   ```
+   sudo -u adminlechuga git push origin --delete mi-cambio
+   git branch -d mi-cambio
+   ```
+
+### Generar el token
+
+GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens
+→ Generate new token:
+
+- *Resource owner*: `hugo-555-ai`
+- *Repository access*: Only select repositories → `filosofadas-ia`
+- *Repository permissions*: `Contents: Read and write` (y `Pull requests: Read and write`
+  si se van a abrir PRs)
+- *Expiration*: la más corta que sirva (el token solo se muestra una vez).
+
+Un 403 con el usuario correcto casi siempre es que al token le falta `Contents: Read and write`
+o no incluye este repo. Revoca el token cuando termines.
