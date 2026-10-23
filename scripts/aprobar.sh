@@ -27,4 +27,4 @@ json.dump(est, open(d / "estado.json", "w"), ensure_ascii=False, indent=2)
 print(f"estado: {est['estado']} ({len(set(est['aprobados']))}/3)")
 PY
 
-/etc/filosofadas/publicar.sh "$LOC" "$ID"
+/opt/filosofia-ia/scripts/publicar.sh "$LOC" "$ID"

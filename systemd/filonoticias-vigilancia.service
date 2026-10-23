@@ -4,4 +4,4 @@ Description=Comprueba que hoy se haya generado el borrador
 [Service]
 Type=oneshot
 User=filosofadas
-ExecStart=/etc/filosofadas/vigilancia.sh
+ExecStart=/opt/filosofia-ia/scripts/vigilancia.sh

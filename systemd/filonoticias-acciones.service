@@ -9,7 +9,7 @@ Group=filosofadas
 WorkingDirectory=/var/lib/filosofadas/work
 Environment=HOME=/var/lib/filosofadas
 Environment=PYTHONUNBUFFERED=1
-ExecStart=/usr/bin/python3 /etc/filosofadas/acciones.py
+ExecStart=/usr/bin/python3 /opt/filosofia-ia/scripts/acciones.py
 
 # Se reinicia solo si se cae (pero no en bucle infinito)
 Restart=on-failure

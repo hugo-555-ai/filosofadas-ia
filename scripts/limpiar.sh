@@ -2,7 +2,7 @@
 # limpiar.sh — archiva borradores viejos y borra vistas previas caducadas.
 set -euo pipefail
 BASE=/var/lib/filosofadas
-DOCROOT=/var/www.hugo.cat/html
+DOCROOT=/var/www.hugo.cat/filonoticies
 DIAS=90
 
 # 1) pending -> archivo si tiene mas de DIAS

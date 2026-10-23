@@ -3,7 +3,7 @@
 import html, sys
 from pathlib import Path
 
-DOCROOT = Path("/var/www.hugo.cat/html")
+DOCROOT = Path("/var/www.hugo.cat/filonoticies")
 NOMBRE = {"ca": "FiloNotícies", "es": "FiloNoticias", "cost": "FiloNoticias — a lo bien"}
 IDIOMA = {"ca": "ca", "es": "es", "cost": "es"}
 
